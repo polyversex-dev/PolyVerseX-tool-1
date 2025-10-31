@@ -361,12 +361,12 @@ def main() -> int:
 	parser.add_argument(
 		"--out",
 		type=str,
-		help=f"Output path for full markets (default: src/clob/{DEFAULT_OUTPUT_FILENAME})"
+		help=f"Output path for full markets (default: src/data/{DEFAULT_OUTPUT_FILENAME})"
 	)
 	parser.add_argument(
 		"--names-out",
 		type=str,
-		help=f"Output path for market names (default: src/clob/{DEFAULT_NAMES_OUTPUT_FILENAME})"
+		help=f"Output path for market names (default: src/data/{DEFAULT_NAMES_OUTPUT_FILENAME})"
 	)
 	parser.add_argument(
 		"--indent",
@@ -405,10 +405,10 @@ def main() -> int:
 	
 	args = parser.parse_args()
 	
-	# Set output paths
-	script_dir = Path(__file__).parent
-	markets_path = Path(args.out) if args.out else script_dir / DEFAULT_OUTPUT_FILENAME
-	names_path = Path(args.names_out) if args.names_out else script_dir / DEFAULT_NAMES_OUTPUT_FILENAME
+	# Set output paths - save to data folder
+	data_dir = Path(__file__).parent.parent / 'data'
+	markets_path = Path(args.out) if args.out else data_dir / DEFAULT_OUTPUT_FILENAME
+	names_path = Path(args.names_out) if args.names_out else data_dir / DEFAULT_NAMES_OUTPUT_FILENAME
 	
 	try:
 		# Determine which mode to use based on flags
@@ -446,10 +446,10 @@ def main() -> int:
 		
 		# Determine output paths and create metadata
 		if use_special_filenames:
-			# Use separate filenames for current markets
-			script_dir = Path(__file__).parent
-			output_markets_path = script_dir / DEFAULT_CURRENT_MARKETS_FILENAME
-			output_names_path = script_dir / DEFAULT_CURRENT_NAMES_FILENAME
+			# Use separate filenames for current markets in data folder
+			data_dir = Path(__file__).parent.parent / 'data'
+			output_markets_path = data_dir / DEFAULT_CURRENT_MARKETS_FILENAME
+			output_names_path = data_dir / DEFAULT_CURRENT_NAMES_FILENAME
 		else:
 			output_markets_path = markets_path
 			output_names_path = names_path

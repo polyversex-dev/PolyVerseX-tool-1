@@ -112,6 +112,12 @@ logs/
 poetry.lock
 Pipfile.lock
 
-# CLOB JSON files
+# Data files (large JSON files)
+src/data/*.json
+src/data/*.npy
+src/data/*.faiss
+src/data/*.index
+
+# Legacy CLOB JSON files (if any remain)
 src/clob/*.json
 

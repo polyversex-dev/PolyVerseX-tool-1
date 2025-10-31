@@ -2,6 +2,8 @@
 
 Fetch markets from Polymarket with flexible filtering options.
 
+**Note**: All JSON data files are now stored in `src/data/` directory.
+
 ## Usage
 
 ```bash
@@ -49,15 +51,17 @@ python fetch_markets.py
 
 ## Output Files
 
+All files are saved to `src/data/` directory.
+
 ### Default Mode
 
-- `markets.json` - Full market data with metadata
-- `market_names.json` - Array of market questions
+- `src/data/markets.json` - Full market data with metadata
+- `src/data/market_names.json` - Array of market questions
 
 ### Current Mode (`--current`)
 
-- `current_markets.json` - Open markets with metadata
-- `current_market_names.json` - Array of open market questions
+- `src/data/current_markets.json` - Open markets with metadata
+- `src/data/current_market_names.json` - Array of open market questions
 
 ## Output Format
 
