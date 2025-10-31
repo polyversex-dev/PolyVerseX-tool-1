@@ -112,3 +112,6 @@ logs/
 poetry.lock
 Pipfile.lock
 
+# CLOB JSON files
+src/clob/*.json
+
